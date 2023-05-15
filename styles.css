@@ -1,0 +1,30 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: orange;
+    height: 180px;
+}  
+   
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 50px;
+
+}
+h2 {
+    font-family: monospace;
+    text-align: center;
+    font-size: 30px;
+}
+
+.regalo{
+   height: 50px;
+   display: flex;
+   justify-content: center;
+}
+.boton {
+    color: blue;
+}
