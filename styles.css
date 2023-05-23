@@ -3,28 +3,64 @@
     margin: 0;
     padding: 0;
 }
-header {
-    background-color: orange;
-    height: 180px;
-}  
-   
-h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    text-align: center;
-    font-size: 50px;
 
+.fondo {
+    background-color: rgb(168, 251, 33);
 }
-h2 {
+header {
+    background-image: url(/img/frente.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 400px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+.frase {
+    margin: 80px;
+    color: rgb(15, 15, 200);
+    font-size: xx-large;
+    
+}
+
+   
+.titulo {
+    font-family: cursive;
+    font-style: oblique;
+    text-align: center;
+    color: white;
+font-size: 80px;
+}
+
+.subtitulo {
     font-family: monospace;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
+    color: white;
 }
 
 .regalo{
-   height: 50px;
+   height: 70px;
    display: flex;
    justify-content: center;
 }
-.boton {
-    color: blue;
+.container-xl {
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     background-color: rgb(246, 214, 56);
+    height: 100px;
+   
+
+}
+
+main {
+    background-color: orange;
+    height: 500px;
+   
+}  
+
+.card-body {
+    background-color: rgb(137, 232, 59);
+    font-size: 25px;
 }
