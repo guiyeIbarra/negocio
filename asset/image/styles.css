@@ -35,3 +35,25 @@ h2 {
     display: flex;
     justify-content: space-around;
 }
+
+.container {
+    display: flex; 
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.producto { 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 1rem;
+    width: 250px;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.2s;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
