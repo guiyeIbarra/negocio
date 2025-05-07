@@ -48,7 +48,7 @@ const productos = [
     e.preventDefault();
   
     const nombre = document.getElementById("nombre").value;
-    const correo = document.getElementById("correo").value;
+    const correo = document.getElementById("telefono").value;
   
     if (presupuesto.length === 0) {
       alert("El presupuesto está vacío. Agregá al menos un producto.");
