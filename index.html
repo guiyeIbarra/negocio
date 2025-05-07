@@ -18,12 +18,30 @@
 
 <body>
     <header>
-       <fieldset class="arriba">
+       <fieldset >
         <h1>IRIS</h1>
         <h2>Regalos</h2>
        </fieldset>
       </header>
-      
+
+
+
+      <div id="productos" class="productos-grid"></div>
+
+  <h2 class="subtitulo">Presupuesto</h2>
+  <ul id="lista-presupuesto"></ul>
+  <p><strong>Total: $<span id="total">0</span></strong></p>
+
+  <h2 class="subtitulo">Datos del Cliente</h2>
+  <form id="formulario-pedido">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" required><br>
+    <label for="correo">Teléfono</label><br>
+    <input type="email" id="correo" required><br><br>
+    <button type="submit">Enviar Pedido por WhatsApp</button>
+  </form>
+
+      <!--
        <div class="menu">
        <nav>
          <ul>
@@ -33,13 +51,18 @@
          </ul>
        </nav>
       </div>
-    
+    -->
+
+
       <main>
 
       </main>
     <footer>
 
     </footer>
+
+    <script src="scripts.js"></script>
+
 </body>
 
 </html>
