@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Librería, bazar y regalería en panambi">
+    <meta name="description" content="Librería, bazar y regalería en Panambí, Misiones.">
     <meta name="keywords" content="artículos de librería, artículos de bazar, regalos, cargadores, artículos de cocina, artículos de limpieza, golosinas, galletitas">
     <meta name="author" content="guiyeIbarra">
     <link rel="stylesheet" href="styles.css">
+
     <title>Iris Regalos</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +25,7 @@
        
       </header>
 
-
+      <main>
 
       <div id="productos" class="productos-grid"></div>
 
@@ -53,9 +54,26 @@
       </div>
     -->
 
+    <section class="admin-login">
+      <h2>Ingreso de administrador</h2>
+      <input type="email" id="admin-email" placeholder="Correo electrónico">
+      <input type="password" id="admin-pass" placeholder="Contraseña">
+      <button onclick="loginAdmin()">Ingresar</button>
+    </section>
+    
+    <section id="admin-panel" class="admin-panel oculto">
+      <h3>Agregar nuevo producto</h3>
+      <form id="form-agregar-producto">
+        <input type="text" id="nuevo-nombre" placeholder="Nombre del producto" required>
+        <input type="number" id="nuevo-precio" placeholder="Precio" required>
+        <input type="text" id="nueva-imagen" placeholder="URL de imagen" required>
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+    
 
-      <main>
 
+    
       </main>
     <footer>
 
@@ -63,6 +81,38 @@
 
     <script src="scripts.js"></script>
 
+    <script type="module" src="firebase.js"></script>
+
+
+    <!--
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyC4ryvVdLvpP8pFThyIuwILGVzZzH4YCi4",
+  authDomain: "iris-regalos.firebaseapp.com",
+  projectId: "iris-regalos",
+  storageBucket: "iris-regalos.firebasestorage.app",
+  messagingSenderId: "237353631928",
+  appId: "1:237353631928:web:a66d26a08bc307b176744d",
+  measurementId: "G-J499EWH4ML"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+    </script>
+  -->
+
+
 </body>
 
 </html>
+
+

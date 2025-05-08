@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+    background-color: #282833;
 }
 
 body {
@@ -49,9 +50,7 @@ h2 {
     padding: 30px;
   }
   
-  .producto {
-    background-color: #fff;
-    border: 1px solid #ccc;
+  #productos {
     border-radius: 8px;
     padding: 10px;
     width: auto;
@@ -61,6 +60,7 @@ h2 {
   }
   
   .producto img {
+    
     max-width: 100%;
     height: auto;
     border-radius: 4px;
@@ -142,13 +142,17 @@ h2 {
     }
   
     button {
-      width: 100%;
+      width: 100px;
       font-size: 1rem;
     }
-    .producto {
-        width: 80%;
-        margin: 25px;
+    .productos-grid {
+      display: inline;
+        width: 90%;
+        margin: 20px;
+        padding: 30px;
       }
+
+
     .subtitulo{
         border-radius: 5px;
         margin: 10px;
