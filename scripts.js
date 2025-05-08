@@ -2,7 +2,9 @@ const productos = [
     { id: 1, nombre: "Aros", precio: 120, imagen: "asset/image/aros.jpg" },
     { id: 2, nombre: "Pulseras", precio: 80, imagen: "asset/image/pulseras.jpg" },
     { id: 3, nombre: "Dijes", precio: 150, imagen: "asset/image/dijes.jpg" },
-    { id: 4, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" }
+    { id: 4, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" },
+    { id: 5, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" },
+    { id: 6, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" }
   ];
   
   let presupuesto = [];
@@ -33,6 +35,7 @@ const productos = [
   function actualizarPresupuesto() {
     listaPresupuesto.innerHTML = "";
     let totalPrecio = 0;
+
   
     presupuesto.forEach(item => {
       const li = document.createElement("li");
@@ -42,6 +45,7 @@ const productos = [
     });
   
     total.textContent = totalPrecio;
+    
   }
   
   formulario.addEventListener("submit", function (e) {

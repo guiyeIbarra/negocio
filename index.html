@@ -24,14 +24,20 @@
         <h1>Regalos</h1>
        
       </header>
-
+         <hr>
       <main>
+          <h2>Catálogo</h2>
+          <div id="productos" class="productos-grid">
+          </div>
 
-      <div id="productos" class="productos-grid"></div>
+      <div>
 
-  <h3 class="subtitulo">Pedido</h3>
-  <ul id="lista-presupuesto"></ul>
-  <h4><strong>Total: $<span id="total">0</span></strong></h4>
+          <h3 class="subtitulo">Pedido</h3>
+          <ul id="lista-presupuesto"></ul>
+          <h4><strong>Total: $<span id="total">0</span></strong></h4>
+
+      </div>
+      <div>
 
   <h3 class="subtitulo">Datos del Cliente</h3>
   <form id="formulario-pedido">
@@ -41,21 +47,10 @@
     <input type="telefono" id="telefono" required><br><br>
     <button type="submit">Enviar Pedido por WhatsApp</button>
   </form>
-
-      <!--
-       <div class="menu">
-       <nav>
-         <ul>
-          <li>Inicio</li>
-          <li>Artículos</li>
-          <li>Novedades</li>
-         </ul>
-       </nav>
-      </div>
-    -->
+</div>
 
     <section class="admin-login">
-      <h2>Ingreso de administrador</h2>
+      <h4>Admin</h4>
       <input type="email" id="admin-email" placeholder="Correo electrónico">
       <input type="password" id="admin-pass" placeholder="Contraseña">
       <button onclick="loginAdmin()">Ingresar</button>

@@ -1,32 +1,34 @@
 
 * {
     margin: 0;
-    padding: 0;
-    background-color: #282833;
+    padding: 0px;
 }
 
 body {
-    background-color: black;
-    
-
+    background-color: rgb(56, 50, 50);
 }
 
-.arriba {
-    margin: 100px;
+header {
+    font-family: "Dancing Script";
     background-color: transparent;
+    margin: auto;
     height: 200px;
-    width: 200px;
-    border: none;
+    margin-bottom: 40px;
 }
 
-h1,
-
-h2 {
+h1 {
     text-align: center;
     margin-top: 50px;
     color: rgb(233, 230, 207);
     font-family: "Dancing Script", cursive;
     font-size: 70px;
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin: 25px;
+  font-style: italic;
 }
 
 .subtitulo {
@@ -40,27 +42,28 @@ h2 {
 }
 
 
-
-
 .productos-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-around;
     padding: 30px;
+    height: auto;
   }
   
   #productos {
     border-radius: 8px;
     padding: 10px;
     width: auto;
-    height: 320px;
+    height: auto;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     text-align: center;
+    margin-bottom: 30px;
   }
   
   .producto img {
-    
     max-width: 100%;
     height: auto;
     border-radius: 4px;
@@ -107,6 +110,8 @@ h2 {
     color: rgb(249, 8, 8);
   }
   
+/*
+
   @media (max-width: 768px) {
     .productos-grid {
       flex-direction: column;
