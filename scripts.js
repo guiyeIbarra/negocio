@@ -20,8 +20,8 @@ const productos = [
     div.innerHTML = `
       <img src="${prod.imagen}" alt="${prod.nombre}">
       <h3>${prod.nombre}</h3>
-      <p>Precio: $${prod.precio}</p>
-      <button onclick="agregarAlPresupuesto(${prod.id})">Agregar</button>
+      <p> $${prod.precio}</p>
+      <button onclick="agregarAlPresupuesto(${prod.id})">Comprar</button>
     `;
     contenedor.appendChild(div);
   });
@@ -44,8 +44,10 @@ const productos = [
       totalPrecio += item.precio;
     });
   
-    total.textContent = totalPrecio;
-    
+    total.textContent = "Total $" + totalPrecio;
+
+    let compra = totalPrecio;
+    alert("Su compra es de $" + compra);
   }
   
   formulario.addEventListener("submit", function (e) {
@@ -63,6 +65,7 @@ const productos = [
     const productosTexto = presupuesto.map(p => `- ${p.nombre}: $${p.precio}`).join('%0A');
   
     const mensaje = `Hola, soy ${nombre} (${correo}).%0AQuiero hacer este pedido:%0A${productosTexto}%0A%0ATotal: $${totalPedido}`;
+
   
     // 👉 Reemplazá este número por el tuyo
     const numeroWhatsApp = "3755585749";
@@ -84,4 +87,5 @@ const productos = [
     presupuesto = [];
     actualizarPresupuesto();
   });
+  
   
