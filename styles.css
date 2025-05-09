@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: rgb(56, 50, 50);
+    background-color: rgb(45, 39, 39);
     color: #fff;
 }
 
@@ -13,7 +13,7 @@ header {
     font-family: "Dancing Script";
     background-color: transparent;
     margin: auto;
-    height: 200px;
+    height: 180px;
     margin-bottom: 40px;
 }
 
@@ -70,8 +70,9 @@ h3, p {
   }
   
   .producto img {
-    max-width: 100%;
+    width: 280px;
     height: auto;
+    object-fit: contain;
     border-radius: 4px;
   }
   
