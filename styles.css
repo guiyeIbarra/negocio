@@ -121,15 +121,10 @@ h3, p {
   }
 
   #total{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
     background-color: #fff;
-    font-size: 28px;
-    color: rgb(249, 8, 8);
+    font-size: 25px;
+    color: rgb(209, 42, 42);
     text-align: center;
-    border-radius: 6px;
   }
 
   footer {

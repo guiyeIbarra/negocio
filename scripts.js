@@ -47,7 +47,9 @@ const productos = [
     total.textContent = "Total $" + totalPrecio;
 
     let compra = totalPrecio;
-    swal("¿Corfirma su pedido de $" + compra + "?");
+    
+    swal("¿Confirma su pedido de $" + compra + "?");
+
   }
   
   formulario.addEventListener("submit", function (e) {
@@ -59,6 +61,7 @@ const productos = [
     if (presupuesto.length === 0) {
       alert("El presupuesto está vacío. Agregá al menos un producto.");
       return;
+      
     }
   
     const totalPedido = presupuesto.reduce((s, p) => s + p.precio, 0);
