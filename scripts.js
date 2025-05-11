@@ -47,7 +47,7 @@ const productos = [
     total.textContent = "Total $" + totalPrecio;
 
     let compra = totalPrecio;
-    alert("Su compra es de $" + compra);
+    swal("¿Corfirma su pedido de $" + compra + "?");
   }
   
   formulario.addEventListener("submit", function (e) {
