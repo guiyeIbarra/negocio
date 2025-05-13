@@ -13,6 +13,7 @@ const productos = [
   const listaPresupuesto = document.getElementById("lista-presupuesto");
   const total = document.getElementById("total");
   const formulario = document.getElementById("formulario-pedido");
+
   
   productos.forEach(prod => {
     const div = document.createElement("div");
@@ -42,10 +43,10 @@ const productos = [
       li.textContent = `${item.nombre} - $${item.precio}`;
       listaPresupuesto.appendChild(li);
       totalPrecio += item.precio;
-    });
+    
   
-    total.textContent = "Total $" + totalPrecio;
-
+    total.innerText = "Total $" + totalPrecio;  
+    });
     let compra = totalPrecio;
     
     swal("¿Confirma su pedido de $" + compra + "?");
@@ -59,7 +60,7 @@ const productos = [
     const correo = document.getElementById("telefono").value;
   
     if (presupuesto.length === 0) {
-      alert("El presupuesto está vacío. Agregá al menos un producto.");
+      swal("El presupuesto está vacío. Agregá al menos un producto.");
       return;
       
     }

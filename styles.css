@@ -3,11 +3,6 @@
     margin: 0;
     padding: 0px;
 }
-
-body {
-    background-color: rgb(45, 39, 39);
-    color: #fff;
-}
 /*
 header {
     font-family: "Dancing Script";
@@ -79,32 +74,26 @@ h3, p {
   button {
     font-size: 18px;
     margin-top: 10px;
-    padding: 6px 12px;
+    padding: 6px;
     background-color: #25D366;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 6px !important;
+  }
+  button:hover{
+    background-color: #13f766;
   }
   
-
-
-  form {
-    margin-top: 20px;
-    width: 30%;
+  form{
     text-align: center;
     margin: auto;
   }
-  
-  input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 10px;
-    
-    width: 250px;
-    border-radius: 5px;
+
+  input{
+    width: 220px;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgb(33, 32, 32);
+    text-align: center;
   }
   
   #lista-presupuesto {
@@ -114,6 +103,7 @@ h3, p {
     font-size: 20px;
     padding: 20px;
     margin: auto;
+    border: 1px solid rgb(33, 32, 32);
     border-radius: 6px;
     box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
     list-style: none;
@@ -135,6 +125,14 @@ h3, p {
     margin-top: 20%;
     margin-left: 60%;
     text-align: center;
+  }
+
+  .redes{
+    width: 2px;
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 50px;
+
   }
 /*
 
