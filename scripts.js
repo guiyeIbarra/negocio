@@ -44,16 +44,19 @@ const productos = [
       listaPresupuesto.appendChild(li);
       totalPrecio += item.precio;
     
-  
+      pedidoConfirmar = item.nombre;
    
     });
 
     total.textContent = `Total $${totalPrecio}`; 
-    total.style.marginLeft = "30%";
+    //total.style.marginLeft = "30%";
+    total.style.fontWeight = "bold";
+    total.style.position = "absolute";
+    total.style.left = "40%";
 
-    let compra = totalPrecio;
+    let compra = pedidoConfirmar;
     
-    swal("¿Confirma su pedido de $" + compra + "?");
+    swal("¿Confirma su pedido de " + compra + "?");
 
   }
 
