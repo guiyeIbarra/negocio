@@ -22,7 +22,7 @@ const productos = [
       <img src="${prod.imagen}" alt="${prod.nombre}">
       <h3>${prod.nombre}</h3>
       <p> $${prod.precio}</p>
-      <button onclick="agregarAlPresupuesto(${prod.id})">Comprar</button>
+      <button onclick="agregarAlPresupuesto(${prod.id})">Comprar</button><br><br><hr>
     `;
     contenedor.appendChild(div);
   });
@@ -45,13 +45,20 @@ const productos = [
       totalPrecio += item.precio;
     
   
-    total.innerText = "Total $" + totalPrecio;  
+   
     });
+
+    total.textContent = `Total $${totalPrecio}`; 
+    total.style.marginLeft = "30%";
+
     let compra = totalPrecio;
     
     swal("¿Confirma su pedido de $" + compra + "?");
 
   }
+
+  
+  
   
   formulario.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -65,9 +72,13 @@ const productos = [
       
     }
   
+    
+
     const totalPedido = presupuesto.reduce((s, p) => s + p.precio, 0);
     const productosTexto = presupuesto.map(p => `- ${p.nombre}: $${p.precio}`).join('%0A');
   
+     
+
     const mensaje = `Hola, soy ${nombre} (${correo}).%0AQuiero hacer este pedido:%0A${productosTexto}%0A%0ATotal: $${totalPedido}`;
 
   
@@ -90,6 +101,8 @@ const productos = [
     formulario.reset();
     presupuesto = [];
     actualizarPresupuesto();
+
+    swal("Pedido confirmado");
   });
   
   

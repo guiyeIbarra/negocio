@@ -3,22 +3,32 @@
     margin: 0;
     padding: 0px;
 }
-/*
+
 header {
-    font-family: "Dancing Script";
-    background-color: transparent;
-    margin: auto;
-    height: 180px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    background: linear-gradient(white, orange, white);
+   height: 170px;
 }
-*/
+
 h1 {
     text-align: center;
-    margin-top: 50px;
-    color: rgb(233, 230, 207);
+    margin-top: 60px;
+    color: rgb(44, 44, 42) !important;
     font-family: "Dancing Script", cursive;
-    font-size: 55px;
+    font-size: 55px !important;
 }
+
+#frase{
+  font-size: 20px;
+  font-style: italic;
+  font-family: "Dancing Script";
+}
+  .redes{   
+    position: absolute;
+    margin-left: 85%;
+    margin-top: -100px;
+    background-color: transparent;
+  }
 
 h2 {
   color: #fff;
@@ -65,7 +75,7 @@ h3, p {
   }
   
   .producto img {
-    width: 250px;
+    width: 300px;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
@@ -118,22 +128,18 @@ h3, p {
   }
 
   footer {
-    height: 100px;
+    height: 180px;
+    background: linear-gradient(white, orange);
   }
   address {
     position: absolute;
     margin-top: 20%;
     margin-left: 60%;
     text-align: center;
+    font-size: 15px;
   }
 
-  .redes{
-    width: 2px;
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 50px;
 
-  }
 /*
 
   @media (max-width: 768px) {
