@@ -5,8 +5,7 @@
 }
 
 header {
-    
-    background: linear-gradient( rgb(88, 246, 233), white);
+    background: linear-gradient( #25D366 20%, white 60%);
    height: 170px;
 }
 
@@ -19,18 +18,22 @@ h1 {
 }
 
 #frase{
-  font-size: 20px;
+  font-size: 25px;
   font-style: italic;
   font-family: "Dancing Script";
 }
-  .redes{   
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    margin-left: 65%;
-    margin-top: -25px;
-    background-color: transparent;
-  }
+
+#instagram{
+  position: absolute;
+  margin-top: -10%;
+  margin-left: 20px;
+}
+
+#facebook{
+  position: absolute;
+  margin-left: 80%;
+  margin-top: -10%;
+}
 
 h2 {
   color: #fff;
@@ -131,7 +134,7 @@ h3, p {
 
   footer {
     height: 180px;
-    background: linear-gradient(white, rgb(88, 246, 233));
+    background: linear-gradient(white 60%, #25D366 100%);
   }
   address {
     position: absolute;
@@ -144,7 +147,7 @@ h3, p {
 
 /*
 
-  @media (min-width: 768px) {
+  @media (min-width: 480px) {
     .productos-grid {
       flex-direction: column;
       align-items: center;
@@ -167,24 +170,41 @@ h3, p {
     }
   }
 */
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
 
+    header{
+      background: linear-gradient(#25D366 0% , white 65% 100%);
+    }
+    h1 {
+    font-size: 74px !important;
+    }
+    #frase{
+    font-size: 30px;
+    }
+    #instagram{
+      position: absolute;
+      margin-top: -2%;
+      margin-left: 85%;
+    }
+    #facebook{
+      position: absolute;
+      margin-top: -2%;
+      margin-left: 91%;
+    }
     .producto img {
     width: 300px;
     height: 250px;
     object-fit: contain;
     border-radius: 4px;
     padding: 10px;
-  }
-  .redes{
-    margin-left: 90%;
-  }
-  h1 {
-    font-size: 74px !important;
-  }
-  #frase{
-    font-size: 30px;
-  }
+    }
+    footer{
+    height: 200px;
+    }
+    address{
+      margin-top: 100px;
+      margin-left: 85%;
+    }
 }
 
    /*
