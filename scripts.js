@@ -1,3 +1,4 @@
+
 const productos = [
     { id: 1, nombre: "Aros", precio: 120, imagen: "asset/image/aros.jpg" },
     { id: 2, nombre: "Pulseras", precio: 80, imagen: "asset/image/pulseras.jpg" },
