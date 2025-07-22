@@ -1,112 +1,92 @@
+  
+  
 
-const productos = [
-    { id: 1, nombre: "Aros", precio: 120, imagen: "asset/image/aros.jpg" },
-    { id: 2, nombre: "Pulseras", precio: 80, imagen: "asset/image/pulseras.jpg" },
-    { id: 3, nombre: "Dijes", precio: 150, imagen: "asset/image/dijes.jpg" },
-    { id: 4, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" },
-    { id: 5, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" },
-    { id: 6, nombre: "Kit de reventa", precio: 800, imagen: "asset/image/kit.jpg" }
-  ];
-  
-  let presupuesto = [];
-  
-  const contenedor = document.getElementById("productos");
-  const listaPresupuesto = document.getElementById("lista-presupuesto");
-  const total = document.getElementById("total");
-  const formulario = document.getElementById("formulario-pedido");
 
-  
-  productos.forEach(prod => {
-    const div = document.createElement("div");
-    div.classList.add("producto");
-    div.innerHTML = `
-      <img src="${prod.imagen}" alt="${prod.nombre}">
-      <h3>${prod.nombre}</h3>
-      <p> $${prod.precio}</p>
-      <button onclick="agregarAlPresupuesto(${prod.id})">Comprar</button><br><br><hr>
-    `;
-    contenedor.appendChild(div);
-  });
-  
-  function agregarAlPresupuesto(id) {
-    const producto = productos.find(p => p.id === id);
-    presupuesto.push(producto);
-    actualizarPresupuesto();
-  }
-  
-  function actualizarPresupuesto() {
-    listaPresupuesto.innerHTML = "";
-    let totalPrecio = 0;
+  let productos = [];
+let presupuesto = [];
 
-  
-    presupuesto.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = `${item.nombre} - $${item.precio}`;
-      listaPresupuesto.appendChild(li);
-      totalPrecio += item.precio;
-    
-      pedidoConfirmar = item.nombre;
-   
+const contenedor = document.getElementById("productos");
+const listaPresupuesto = document.getElementById("lista-presupuesto");
+const total = document.getElementById("total");
+const formulario = document.getElementById("formulario-pedido");
+
+// Cargar productos desde tu API backend
+async function cargarProductos() {
+  try {
+    const res = await fetch("http://localhost:3000/productos");
+    productos = await res.json();
+
+    contenedor.innerHTML = "";
+
+    productos.forEach(prod => {
+      const div = document.createElement("div");
+      div.classList.add("producto");
+      div.innerHTML = `
+        <img src="${prod.imagen_url}" alt="${prod.nombre}">
+        <h3>${prod.nombre}</h3>
+        <p> $${prod.precio}</p>
+        <button onclick="agregarAlPresupuesto(${prod.id})">Comprar</button><br><br><hr>
+      `;
+      contenedor.appendChild(div);
     });
 
-    total.textContent = `Total $${totalPrecio}`; 
-    //total.style.marginLeft = "30%";
-    total.style.fontWeight = "bold";
-    total.style.position = "absolute";
-    total.style.left = "40%";
+  } catch (error) {
+    console.error("Error al cargar productos:", error);
+  }
+}
 
-    let compra = pedidoConfirmar;
-    
-    swal("¿Confirma su pedido de " + compra + "?");
+window.addEventListener("DOMContentLoaded", cargarProductos);
 
+function agregarAlPresupuesto(id) {
+  const producto = productos.find(p => p.id === id);
+  presupuesto.push(producto);
+  actualizarPresupuesto();
+}
+
+function actualizarPresupuesto() {
+  listaPresupuesto.innerHTML = "";
+  let totalPrecio = 0;
+
+  presupuesto.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.nombre} - $${item.precio}`;
+    listaPresupuesto.appendChild(li);
+    totalPrecio += item.precio;
+  });
+
+  total.innerHTML = `<h4><strong>Total: $${totalPrecio}</strong></h4>`;
+  total.style.fontWeight = "bold";
+  total.style.position = "absolute";
+  total.style.left = "40%";
+}
+
+formulario.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value;
+  const telefono = document.getElementById("telefono").value;
+
+  if (presupuesto.length === 0) {
+    swal("El presupuesto está vacío. Agregá al menos un producto.");
+    return;
   }
 
-  
-  
-  
-  formulario.addEventListener("submit", function (e) {
-    e.preventDefault();
-  
-    const nombre = document.getElementById("nombre").value;
-    const correo = document.getElementById("telefono").value;
-  
-    if (presupuesto.length === 0) {
-      swal("El presupuesto está vacío. Agregá al menos un producto.");
-      return;
-      
-    }
-  
-    
+  const totalPedido = presupuesto.reduce((s, p) => s + p.precio, 0);
+  const productosTexto = presupuesto.map(p => `- ${p.nombre}: $${p.precio}`).join('%0A');
 
-    const totalPedido = presupuesto.reduce((s, p) => s + p.precio, 0);
-    const productosTexto = presupuesto.map(p => `- ${p.nombre}: $${p.precio}`).join('%0A');
-  
-     
+  const mensaje = `Hola, soy ${nombre} (${telefono}).%0AQuiero hacer este pedido:%0A${productosTexto}%0A%0ATotal: $${totalPedido}`;
 
-    const mensaje = `Hola, soy ${nombre} (${correo}).%0AQuiero hacer este pedido:%0A${productosTexto}%0A%0ATotal: $${totalPedido}`;
+  const numeroWhatsApp = "3755585749";
+  const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
 
-  
-    // 👉 Reemplazá este número por el tuyo
-    const numeroWhatsApp = "3755585749";
-    const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-  
-    // 📱 Detectar si es móvil
-    const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
-    if (esMovil) {
-      // En móvil: redirigir directamente a WhatsApp
-      window.location.href = url;
-    } else {
-      // En escritorio: abrir nueva pestaña
-      window.open(url, "_blank");
-    }
-  
-    // Resetear formulario y presupuesto
-    formulario.reset();
-    presupuesto = [];
-    actualizarPresupuesto();
+  if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    window.location.href = url;
+  } else {
+    window.open(url, "_blank");
+  }
 
-    swal("Pedido confirmado");
-  });
-  
-  
+  formulario.reset();
+  presupuesto = [];
+  actualizarPresupuesto();
+  swal("Pedido confirmado");
+});

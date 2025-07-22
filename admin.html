@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Admin - Iris Regalos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2 class="subtitulo">Panel de Administrador</h2>
+
+  <form id="form-admin" enctype="multipart/form-data">
+    <input type="text" name="nombre" placeholder="Nombre" required><br>
+    <input type="text" name="descripcion" placeholder="Descripción" required><br>
+    <input type="number" name="precio" placeholder="Precio" required><br>
+    <input type="file" name="imagen" accept="image/*" required><br>
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <hr>
+
+  <h3>Productos existentes</h3>
+  <div id="lista-productos"></div>
+
+  <script>
+    const form = document.getElementById("form-admin");
+    const lista = document.getElementById("lista-productos");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const res = await fetch("http://localhost:3000/productos", {
+        method: "POST",
+        body: formData
+      });
+      const data = await res.json();
+      alert(data.mensaje || "Error al agregar producto");
+      form.reset();
+      cargarProductos();
+    });
+
+    async function cargarProductos() {
+      const res = await fetch("http://localhost:3000/productos");
+      const productos = await res.json();
+
+      lista.innerHTML = "";
+      productos.forEach(p => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+          <img src="${p.imagen_url}" width="100"><br>
+          <strong>${p.nombre}</strong><br>
+          $${p.precio} - ${p.descripcion}<br>
+          <button onclick="eliminarProducto(${p.id})">Eliminar</button>
+          <hr>
+        `;
+        lista.appendChild(div);
+      });
+    }
+
+    async function eliminarProducto(id) {
+      if (!confirm("¿Estás seguro de que querés eliminar este producto?")) return;
+      const res = await fetch(`http://localhost:3000/productos/${id}`, {
+        method: "DELETE"
+      });
+      const data = await res.json();
+      alert(data.mensaje || "No se pudo eliminar");
+      cargarProductos();
+    }
+
+    window.addEventListener("DOMContentLoaded", cargarProductos);
+  </script>
+</body>
+</html>
