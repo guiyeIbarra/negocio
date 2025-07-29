@@ -69,7 +69,8 @@ h3, p {
     height: auto;
   }
   
-  #productos {
+  #productos,
+  #lista-productos {
     border-radius: 8px;
     padding: 10px;
     width: auto;
